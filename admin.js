@@ -4,6 +4,26 @@ allStudents = JSON.parse(allStudents); //parses it to JSON
 let allStudentsData = localStorage.getItem("students_data") || "{}"; //gets the approval status of all the registered students from local storage
 allStudentsData = JSON.parse(allStudentsData); //parses it to JSON
 
+let staff = {
+  123: { password: "crc", department: "crc" },
+  456: { password: "hostel", department: "hostel" },
+  789: { password: "library", department: "library" },
+};
+
+let defaultersData = {
+  crc: [],
+  hostel: [],
+  library: [],
+};
+
+if (!localStorage.getItem("staff-list")) {
+  localStorage.setItem("staff-list", JSON.stringify(staff));
+}
+
+if (!localStorage.getItem("departmentDefaulters")) {
+  localStorage.setItem("departmentDefaulters", JSON.stringify(defaultersData));
+}
+
 let defaults = {
   crc: false,
   hostel: false,
